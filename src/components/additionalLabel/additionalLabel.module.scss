@@ -1,0 +1,17 @@
+.achievements {
+  width: 222px;
+  padding: 16px 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-family: 'Proxima Nova';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -0.457143px;
+  }
+}

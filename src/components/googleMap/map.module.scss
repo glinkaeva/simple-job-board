@@ -1,0 +1,82 @@
+.wrapper {
+  border-radius: 8px;
+
+  @media (max-width: 440px) {
+    margin: 0 auto;
+  }
+}
+
+.additional {
+  width: 402px;
+  height: 218px;
+  border-radius: 8px 8px 0 0;
+  background: #2A3047;
+  position: relative;
+  overflow: hidden;
+  z-index: -1;
+  padding: 31px 62px 13px;
+
+  @media (max-width: 440px) {
+    width: 360px;
+    padding: 31px 32px 13px;
+  }
+
+  @media (max-width: 389px) {
+    width: 320px;
+  }
+}
+
+.decorative_circle {
+  width: 273px;
+  height: 273px;
+  border-radius: 100%;
+  background: #202336;
+  position: absolute;
+  top: -12px;
+  left: -77px;
+  z-index: -1;
+}
+
+.title {
+  font-family: 'Proxima Nova';
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: -0.625px;
+  color: #E7EAF0;
+  margin-bottom: 7px;
+}
+
+.text {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.5625px;
+  color: #E8EBF3;
+  font-stretch: 100;
+  margin-bottom: 7px;
+}
+
+.map_wrapper {
+  width: 402px;
+  height: 218px;
+  
+  &>div>div {
+    border-radius: 0 0 8px 8px;
+  }
+
+  @media (max-width: 440px) {
+    width: 360px;
+  }
+
+  @media (max-width: 389px) {
+    width: 320px;
+  }
+}
+
+.location {
+  width: 26px;
+  height: 36px;
+  background-image: url(../../../public/images/map_marker.svg);
+}

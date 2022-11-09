@@ -1,0 +1,150 @@
+.vacancy_container {
+  background: #FFFFFF;
+  box-shadow: 2px 1px 7px rgba(0, 0, 0, 0.08), 0px 2px 1px -1px rgba(0, 0, 0, 0.04), 0px 1px 3px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  padding: 24px 16px;
+  display: flex;
+  margin-bottom: 8px;
+}
+.box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-grow: 1;
+
+  @media (max-width: 840px) {
+    flex-direction: column;
+  }
+}
+.content {
+  max-width: 800px;
+  margin-right: 32px;
+}
+.preview {
+  flex-shrink: 0;
+  border-radius: 100%;
+  margin-right: 26px;
+  @media (max-width: 840px) {
+    margin-top: 40px;
+  }
+}
+.headline {
+  font-family: 'Proxima Nova';
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: -0.625px;
+  color: #3A4562;
+  margin-bottom: 8px;
+
+  cursor: pointer;
+  transition: .3s ease-in-out;
+
+  &:hover {
+    color: #103AAA;
+  }
+
+  @media (max-width: 540px) {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.5625px;
+  }
+}
+.additionalInf {
+  font-family: 'Proxima Nova';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0.23619px;
+  color: #878D9D;
+  margin-bottom: 8px;
+
+  @media (max-width: 540px) {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: 0.23619px;
+  }
+}
+.location {
+  display: flex;
+
+  .additionalInf {
+    margin-bottom: 0px;
+  }
+}
+.icon {
+  margin-right: 8px;
+}
+.user_things {
+  height: 100%;
+  min-width: 136px;
+  max-width: 266px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  @media (max-width: 840px) {
+    width: 100%;
+    order: -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    flex-shrink: 1;
+  }
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .bookmark {
+    align-self: flex-end;
+    @media (max-width: 840px) {
+      display: none;
+    }
+  }
+  .stars {
+    align-self: flex-start;
+
+    &_mobile {
+      display: none;
+    }
+
+    @media (max-width: 1270px) {
+      align-self: flex-end;
+    }
+    @media (max-width: 840px) {
+      align-self: center;
+    }
+    @media (max-width: 540px) {
+      width: 60px;
+      &_mobile {
+        display: block;
+      }
+      &_desc {
+        display: none;
+      }
+    }
+    @media (max-width: 400px) {
+      align-self: initial;
+    }
+  }
+  .additionalInf {
+    min-width: 145px;
+    align-self: flex-end;
+    margin-bottom: 0;
+
+    @media (max-width: 540px) {
+      font-size: 14px;
+    }
+    @media (max-width: 400px) {
+      align-self: initial;
+    }
+  }
+}
