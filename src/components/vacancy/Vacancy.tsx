@@ -9,9 +9,18 @@ import Ratings from 'react-ratings-declarative';
 import location from '../../../public/images/location.svg'
 import bookmark from '../../../public/images/bookmark.svg'
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function Vacancy(props: any) {
   const [rating, setRating] = useState(5)
+  const [userWindowWidth, setUserWindowWidth] = useState(null)
+
+  useEffect(()=> {
+    window.addEventListener('resize', ()=> {
+      setUserWindowWidth(window.innerWidth)
+      console.log(window.innerWidth)
+    })
+  }, [])
 
   return (
     <div className={s.vacancy_container}>
@@ -25,9 +34,10 @@ export default function Vacancy(props: any) {
       <div className={s.box}>
         <div className={s.content}>
           <p className={s.headline} onClick={props.titleOnClick}>
-            {/* //! Можно поставить кверю на ширину экрана, и юзнуть слайс для входящих данных */}
             <Link href={`/job_vacancy/${props.id}`}>
-              {props.title}
+              {
+                (userWindowWidth <= 560) ? props.title.substring(0, 52) + "..." : props.title
+              }
             </Link>
           </p>
           <p className={s.additionalInf}>

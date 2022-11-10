@@ -1,13 +1,17 @@
 import type { NextPage } from 'next'
+import Error from '../components/dataError/Error'
 import Pagination from '../components/pagination/Pagination'
 import { loadVacanciesData } from '../functions/fetch'
 
 const IndexPage: NextPage = ({data}:any) => {
   return (
+    data.length>1 ? 
     <Pagination 
       itemsPerPage={15}
       itemsList={data}
-    />
+    /> 
+    : 
+    <Error />
   )
 }
 
