@@ -16,6 +16,12 @@ export default function Vacancy(props: any) {
   const [userWindowWidth, setUserWindowWidth] = useState(1440)
 
   useEffect(()=> {
+    if (typeof window !== 'undefined') {
+      setUserWindowWidth(window.screen.width)
+    }
+  }, [])
+
+  useEffect(()=> {
     window.addEventListener('resize', ()=> {
       setUserWindowWidth(window.innerWidth)
       console.log(window.innerWidth)
@@ -25,8 +31,6 @@ export default function Vacancy(props: any) {
   return (
     <div className={s.vacancy_container}>
       <img 
-          width={85}
-          height={85}
           className={s.preview}
           src={props.previewSrc}
           alt='company photo'
