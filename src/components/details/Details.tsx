@@ -17,21 +17,25 @@ import CurrentVacancies from '../../functions/context';
 export default function Details() {
   const contextValue = useContext(CurrentVacancies);
 
+  // Here the description field is broken down into separate sentences.
+  // start desc separate
   let description:Array<string> = contextValue.currentVacancy.description.split(/\r\n|\r|\n/g);
   let descArray:Array<string> = [];
-  
   for(let i=0; i<description.length; i++) {
     if(description[i].trim()!="") descArray.push(description[i].trim())
   }
   const listItem = descArray[4].split(".");
   const listItemPop = listItem.pop();
+  // end desc separate
 
+  // Here the salary field is broken down into separate parts.
+  // start salary separate
   let salary = contextValue.currentVacancy.salary.replace(/[^+\d\-]/g, '').split("-");
-
   const keyForPictures = [];
   for(let i=0; i<contextValue.currentVacancy.pictures.length; i++) {
     keyForPictures.push(i)
   }
+  // end salary separate
 
   return (
     <>
@@ -84,6 +88,12 @@ export default function Details() {
             </p>
           </div>
   
+          {/* 
+            // Here I use another bad way for put description sentences in <p> 
+            // To be honest, I have not yet encountered such problems with the description of the API, so I decided this way. 
+            // And yes, I understand that this is not reliable at all, and that if the API changes at least for one sentence, everything will break.
+            /// I really would be interested in what other approach can be used here. 
+          */}
           <div className={s.content}>
             <p className={s.text}>
               { descArray[0] }

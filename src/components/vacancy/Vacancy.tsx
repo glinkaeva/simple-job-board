@@ -8,13 +8,10 @@ import Ratings from 'react-ratings-declarative';
 
 import location from '../../../public/images/location.svg'
 import bookmark from '../../../public/images/bookmark.svg'
-import stars from '../../../public/images/stars.svg'
 import { useState } from 'react';
 
 export default function Vacancy(props: any) {
-  
   const [rating, setRating] = useState(5)
-  const stars:number[] = [1, 2, 3, 4, 5]
 
   return (
     <div className={s.vacancy_container}>
@@ -58,6 +55,11 @@ export default function Vacancy(props: any) {
             alt='bookmark'
           />
 
+          {/* 
+            // Bad way out of the situation with stars styles, but I couldn't think of a better one. 
+            // These components are from the library, and you can't change their attributes just like that. 
+            // I had to create two containers. I don't like it.
+          */}
           <div className={`${s.stars} ${s.stars_desc}`}>
             <Ratings
               rating={rating}

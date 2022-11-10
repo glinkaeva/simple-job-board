@@ -1,5 +1,11 @@
 import React from 'react'
 import Head from 'next/head'
+import Vacancy from '../vacancy/Vacancy';
+import s from './pagination.module.scss'
+import CurrentVacancies from '../../functions/context';
+import { useContext } from 'react';
+import { useState } from 'react';
+import ReactPaginate from 'react-paginate';
 
 type TItem = {
   id: string,
@@ -11,8 +17,9 @@ type TItem = {
 }
 
 function Items({ currentItems }) {
+  const contextValue = useContext(CurrentVacancies)
   return (
-    <div className={s.container}>
+    <>
       <Head>
         <title>Simple Job Board</title>
         <link rel="icon" href="/favicon.ico" />
@@ -33,12 +40,37 @@ function Items({ currentItems }) {
           />
         })
       }
-    </div>
+    </>
   );
 }
 
-export default function Pagination() {
+export default function Pagination({ itemsPerPage, itemsList }) {
+  const [itemOffset, setItemOffset] = useState(0);
+  const endOffset = itemOffset + itemsPerPage;
+  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+  const currentItems = itemsList.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(itemsList.length / itemsPerPage);
+
+  const handlePageClick = (event: any) => {
+    const newOffset = (event.selected * itemsPerPage) % itemsList.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+  };
+  
   return (
-    <div>Pagination</div>
+    <div className={s.container}>
+      <Items currentItems={currentItems} />
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel=""
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={pageCount}
+        previousLabel=""
+        renderOnZeroPageCount={null}
+      />
+    </div>
   )
 }

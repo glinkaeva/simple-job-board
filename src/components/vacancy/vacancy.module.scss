@@ -105,6 +105,7 @@
 
   .bookmark {
     align-self: flex-end;
+    cursor: pointer;
     @media (max-width: 840px) {
       display: none;
     }
