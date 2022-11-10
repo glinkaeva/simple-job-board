@@ -13,7 +13,7 @@ import { useEffect } from 'react';
 
 export default function Vacancy(props: any) {
   const [rating, setRating] = useState(5)
-  const [userWindowWidth, setUserWindowWidth] = useState(null)
+  const [userWindowWidth, setUserWindowWidth] = useState(1440)
 
   useEffect(()=> {
     window.addEventListener('resize', ()=> {
