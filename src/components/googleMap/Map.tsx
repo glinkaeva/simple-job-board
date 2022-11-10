@@ -3,7 +3,7 @@ import GoogleMapReact from 'google-map-react';
 import s from './map.module.scss';
 import mapStyle from './map.json'
 
-const AnyReactComponent = () => <div className={s.location}></div>;
+const AnyReactComponent = ({text}: any) => <div className={s.location}></div>;
 
 type TSimpleMapProps = {
   lat: number,
